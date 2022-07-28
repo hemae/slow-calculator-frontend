@@ -1,0 +1,115 @@
+@import "styles/colors";
+@import "styles/screens";
+@import "styles/UI/common";
+
+
+.background {
+
+  position: fixed!important;
+  background-color: rgba($black, 0.5);
+  opacity: 0;
+  transition: opacity 200ms;
+  width: 100vw;
+  height: 100vh;
+  box-shadow: inset 0 0 120px rgba($black, 0.5);
+  @include fullSizeElement2(0, 0);
+  z-index: 2;
+
+  &.hidden {
+    display: none;
+  }
+
+  &.shown {
+    opacity: 1;
+  }
+}
+
+.main {
+  @include fullSizeElement2(0, 0);
+  position: fixed!important;
+  height: calc(24px);
+  left: -85%;
+  width: calc(100vw - 20px * 2);
+  padding: 20px;
+  border-radius: 0 16px 16px 0;
+  transition: left 200ms;
+  z-index: 2;
+
+  &.active {
+    height: calc(100vh - 20px * 2);
+    left: 0;
+    border-radius: 0;
+  }
+
+  > div[id="side-bar-toggle"] {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    > a {
+      width: max-content;
+      padding: 5px;
+      margin-bottom: 20px;
+      color: $black;
+      text-decoration: none;
+      font-size: 20px;
+      line-height: 30px;
+      transition: opacity 100ms;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+
+    > a:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  @media screen and (min-width: $tablet) {
+    height: calc(100vh - 40px * 2);
+    left: -350px;
+    width: calc(400px - 40px * 2);
+    padding: 40px;
+    border-radius: 0 16px 16px 0;
+    transition: left 200ms;
+
+    &.active {
+      height: calc(100vh - 40px * 2);
+      border-radius: 0 16px 16px 0;
+    }
+
+    > div[id="side-bar-toggle"] {
+      position: absolute;
+      top: 20px;
+      right: 10px;
+    }
+
+    &__links {
+
+      > a {
+        padding: 5px;
+        margin-bottom: 20px;
+        color: $black;
+        text-decoration: none;
+        font-size: 20px;
+        line-height: 30px;
+        transition: opacity 100ms;
+
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+
+      > a:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

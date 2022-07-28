@@ -1,0 +1,12 @@
+@import "styles/colors";
+@import "styles/screens";
+
+
+.main {
+  padding: 20px;
+  border-radius: 8px;
+
+  @media screen and (min-width: $tablet) {
+    border-radius: 16px;
+  }
+}

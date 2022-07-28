@@ -1,0 +1,13 @@
+@import "styles/colors";
+@import "styles/screens";
+
+
+.main {
+  color: $black;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  opacity: 0.6;
+}

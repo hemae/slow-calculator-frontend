@@ -1,0 +1,40 @@
+@mixin non-selectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@mixin non-scroll-bar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+}
+
+@mixin fullSizeElement(
+  $top,
+  $right,
+  $bottom,
+  $left
+) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin fullSizeElement2(
+  $top,
+  $left
+) {
+  position: absolute;
+  top: $top;
+  left: $left;
+}

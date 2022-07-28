@@ -1,0 +1,28 @@
+@import "styles/colors";
+@import "styles/screens";
+@import "styles/UI/common";
+
+
+.background {
+  @include fullSizeElement2(0, 0);
+  width: 100vw;
+  height: 100vh;
+  position: fixed!important;
+  background-repeat: repeat;
+  background-size: 30%;
+
+  @media screen and (min-width: $tablet) {
+    background-size: 15%;
+  }
+}
+
+.pale {
+  @include fullSizeElement2(0, 0);
+  background-color: $primary-light;
+  width: 100vw;
+  height: 100vh;
+  background-size: 100%;
+  position: fixed!important;
+  opacity: 0.9;
+  box-shadow: inset 0 0 20px rgba($black, 0.5);
+}

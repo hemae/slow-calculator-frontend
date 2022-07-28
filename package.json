@@ -1,0 +1,45 @@
+{
+  "name": "slow-calculator-frontend",
+  "version": "0.1.0",
+  "repository": "git@github.com:hemae/slow-calculator-frontend.git",
+  "author": "Andrey Arkhipov <hemae2468@gmail.com>",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development next dev",
+    "build": "cross-env NODE_ENV=production next build",
+    "start": "cross-env NODE_ENV=production next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.8.3",
+    "axios": "^0.27.2",
+    "classnames": "^2.3.1",
+    "dotenv": "^16.0.1",
+    "hans-id": "^1.0.1",
+    "js-cookie": "^3.0.1",
+    "next": "12.2.2",
+    "next-redux-wrapper": "^7.0.5",
+    "nextjs-progressbar": "^0.0.14",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-redux": "^8.0.2",
+    "sass": "^1.53.0"
+  },
+  "devDependencies": {
+    "@types/classnames": "^2.3.1",
+    "@types/js-cookie": "^3.0.2",
+    "@types/node": "18.0.6",
+    "@types/react": "18.0.15",
+    "@types/react-dom": "18.0.6",
+    "@types/react-redux": "^7.1.24",
+    "babel-plugin-inline-react-svg": "^2.0.1",
+    "cross-env": "^7.0.3",
+    "eslint": "8.20.0",
+    "eslint-config-next": "12.2.2",
+    "typescript": "4.7.4"
+  },
+  "engines": {
+    "node": "16.15.0",
+    "npm": "~8.0.0"
+  }
+}

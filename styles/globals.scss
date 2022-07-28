@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+//@import "UI/button";
+//@import "UI/input";
+//@import "UI/select";
+@import "styles/screens";
+@import "styles/UI/common";
+
+
+.not-scrollable {
+  overflow: hidden;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+
+  > div {
+    width: 100vw;
+    min-height: 100vh;
+  }
+}
+
+
+a {
+  display: inline-block;
+}
+
+p {
+  white-space: pre-wrap;
+}
+
+h1,
+h2,
+h3,
+span,
+div {
+  margin: 0;
+}
+*,
+code {
+  font-family: 'Nunito', sans-serif;
+  @include non-scroll-bar;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+}
+
+a,
+button,
+input,
+textarea,
+div {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+img {
+  vertical-align: top;
+  display: block;
+}
+
+p,
+span,
+section,
+aside,
+header,
+footer,
+main {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 18px;
+  cursor: default;
+}
+
+h1 {
+  font-size: 25px;
+  line-height: 30px;
+}
+h2 {
+  font-size: 25px;
+  line-height: 30px;
+}
+h3 {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+@media screen and (min-width: $tablet) {
+  h1 {
+    font-size: 48px;
+    line-height: 57px;
+  }
+  h2 {
+    font-size: 36px;
+    line-height: 44px;
+  }
+  h3 {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  a,
+  button,
+  input,
+  textarea,
+  div {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  p,
+  span,
+  section,
+  aside,
+  header,
+  footer,
+  main {
+    font-size: 18px;
+    line-height: 22px;
+    white-space: pre-wrap;
+  }
+}
+
+* {
+  margin: 0;
+}
+
+//select {
+//  @include select;
+//}
+//
+//button {
+//  @include button;
+//}
+//
+//input {
+//  @include input;
+//}
+//
+//textarea {
+//  @include input;
+//}

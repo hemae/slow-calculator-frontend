@@ -1,0 +1,26 @@
+@import "../../../styles/colors";
+@import "../../../styles/screens";
+
+
+.modal {
+  position: relative;
+  width: max-content;
+  height: max-content;
+  background: $white;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.16), inset 0 0 2px rgba($primary, 0.5);
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  @media screen and (min-width: $tablet) {
+    border-radius: 16px;
+  }
+}

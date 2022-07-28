@@ -1,0 +1,44 @@
+@import "styles/colors";
+@import "styles/screens";
+@import "styles/UI/common";
+
+
+.main {
+  color: $black;
+  height: 80px;
+  position: fixed;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 1;
+  transition: all 200ms;
+  padding: 0 20px;
+  z-index: 1;
+
+  > h1 {
+    @include non-selectable;
+  }
+
+  @media screen and (min-width: $tablet) {
+    > h1 {
+      opacity: 1;
+      transition: all 200ms;
+
+      &.interactive {
+
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.7;
+        }
+
+        &:active {
+          transform: scale(0.95);
+        }
+      }
+    }
+  }
+}

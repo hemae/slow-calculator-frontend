@@ -1,0 +1,104 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "baseUrl": ".",
+    "paths": {
+      "@API/*": [
+        "API/*"
+      ],
+      "@entityAPI": [
+        "API/entityAPI/index"
+      ],
+      "@routes": [
+        "store/API/routes"
+      ],
+      "@basePaths": [
+        "API/basePaths"
+      ],
+      "@apiModels/*": [
+        "apiModels/*"
+      ],
+      "@appComponents": [
+        "appComponents/index"
+      ],
+      "@appRoutes": [
+        "appRoutes/index"
+      ],
+      "@AxiosAPI": [
+        "AxiosAPI/index"
+      ],
+      "@qs": [
+        "AxiosAPI/queryCreator/index"
+      ],
+      "@components/*": [
+        "components/*"
+      ],
+      "@components": [
+        "components/index"
+      ],
+      "@UI": [
+        "components/UI/index"
+      ],
+      "@UI/*": [
+        "components/UI/*"
+      ],
+      "@dataHandlers/*": [
+        "dataHandlers/*"
+      ],
+      "@helpers/*": [
+        "helpers/*"
+      ],
+      "@appHooks/*": [
+        "appHooks/*"
+      ],
+      "@hooks/*": [
+        "hooks/*"
+      ],
+      "@layouts/*": [
+        "layouts/*"
+      ],
+      "@pageHooks/*": [
+        "pageHooks/*"
+      ],
+      "@requestHandlers": [
+        "requestHandlers/index"
+      ],
+      "@serverHandlers": [
+        "serverHandlers"
+      ],
+      "@serverSideProps/*": [
+        "serverSideProps/*"
+      ],
+      "@store": [
+        "store/index"
+      ],
+      "@slices": [
+        "store/slices"
+      ],
+      "@slices/*": [
+        "store/slices/*"
+      ],
+      "@styles/*": [
+        "styles/*"
+      ],
+      "@utils/*": [
+        "utils/*"
+      ]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
+}
