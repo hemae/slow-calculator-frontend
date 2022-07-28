@@ -1,8 +1,9 @@
 import {FC, memo} from 'react'
 import styles from '@styles/layouts/Main.module.scss'
 import {AppBackground, HeadComponent} from '@appComponents'
-import {Header, Footer} from '@components'
+import {Header, Footer, SideBar} from '@components'
 import classNames from 'classnames'
+import {Form} from '@apiModels/form'
 
 
 type MainLayoutProps = {
@@ -12,6 +13,8 @@ type MainLayoutProps = {
     children: JSX.Element[] | JSX.Element | string
     className?: string
     combinedClassName?: string
+    forms?: Form[]
+    basePath?: string
 }
 
 const MainLayout: FC<MainLayoutProps> = (props) => {
@@ -22,7 +25,9 @@ const MainLayout: FC<MainLayoutProps> = (props) => {
         description,
         className,
         combinedClassName,
-        imagePreview
+        imagePreview,
+        forms,
+        basePath
     } = props
 
     return (
@@ -43,6 +48,8 @@ const MainLayout: FC<MainLayoutProps> = (props) => {
                 <AppBackground/>
                 {children}
             </main>
+            {forms && basePath &&
+            <SideBar forms={forms} basePath={basePath}/>}
             <Footer/>
         </>
     )
