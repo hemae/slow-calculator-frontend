@@ -8,16 +8,11 @@
   flex-direction: column;
   align-items: center;
   width: 100vw;
-  min-height: 100vh;
+  min-height: calc(100vh - 50px);
   overflow: auto;
   position: relative;
 
-  > aside {
-    @include fullSizeElement(0, 0, 0, 0);
-    position: fixed;
-  }
-
-  > *:not(aside) {
+  > * {
     position: relative;
   }
 }
