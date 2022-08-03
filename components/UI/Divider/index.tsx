@@ -1,5 +1,7 @@
-import {FC} from 'react'
+import {DetailedHTMLProps, FC, HTMLAttributes, memo} from 'react'
 import styles from './Divider.module.scss'
 
 
-export const Divider: FC = () => <div className={styles.main}/>
+export const Divider = memo<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>>(
+    (props) => <div {...props} className={styles.main}/>
+)

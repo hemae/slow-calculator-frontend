@@ -1,6 +1,6 @@
 import {memo} from 'react'
 import styles from './SideBar.module.scss'
-import {MenuToggle, Modal} from '@UI'
+import {MenuToggle} from '@UI'
 import useSideBar from '@components/SideBar/useSideBar'
 import classNames from 'classnames'
 import {Form} from '@apiModels/form'
@@ -28,7 +28,8 @@ export const SideBar = memo<SideBarProps>((props) => {
         backgroundShown,
         sideBarTouchStart,
         sideBarMove,
-        sideBarTouchEnd
+        sideBarTouchEnd,
+        linkClick
     } = useSideBar({basePath})
 
     const links = forms.map(form => {
@@ -36,7 +37,7 @@ export const SideBar = memo<SideBarProps>((props) => {
             <Link
                 key={form.id}
                 href={`${appRoutes.form}/${form.rootKey}`}
-            ><a>{form.data.name}</a></Link>
+            ><a onClick={linkClick}>{form.data.name}</a></Link>
         )
     })
 
@@ -50,7 +51,7 @@ export const SideBar = memo<SideBarProps>((props) => {
                 )}
                 onClick={toggleClick}
             />
-            <Modal
+            <nav
                 className={classNames(
                     styles.main,
                     {[styles.active]: sideBarShown}
@@ -69,7 +70,7 @@ export const SideBar = memo<SideBarProps>((props) => {
                 <div
                     className={styles.main__links}
                 >{links}</div>
-            </Modal>
+            </nav>
         </>
     )
 })

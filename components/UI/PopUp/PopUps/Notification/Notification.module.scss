@@ -1,0 +1,19 @@
+@import "styles/colors";
+@import "styles/screens";
+
+
+.main {
+  width: 300px;
+  padding: 40px;
+
+  display: flex;
+  flex-direction: column;
+
+  > p {
+    text-align: center;
+  }
+
+  > div[id="divider"] {
+    margin: 20px 0;
+  }
+}

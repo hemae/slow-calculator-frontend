@@ -1,5 +1,6 @@
 @import "styles/colors";
 
+
 .main {
   display: flex;
   justify-content: space-around;
@@ -67,7 +68,7 @@
   }
   50% {
     transform: scale(0.8);
-    background: $black;
+    background: rgba($primary, 0.5);
   }
   100% {
     transform: scale(1);

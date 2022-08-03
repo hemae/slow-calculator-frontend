@@ -1,4 +1,3 @@
-import {setUnauthorized} from '@slices/auth'
 import {ErrorType} from '@apiModels/common'
 
 
@@ -8,7 +7,6 @@ export function defineUnauthorized(e: any) {
 
 export function unauthorized(thunkAPI: any) {
     console.log('un')
-    thunkAPI.dispatch(setUnauthorized(true))
 }
 
 export function getError(e: any): ErrorType {

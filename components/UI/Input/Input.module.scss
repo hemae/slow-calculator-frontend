@@ -3,21 +3,78 @@
 
 
 .main {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
 
-  > div {
-    margin-top: 20px;
-    background-color: $grey;
-    transition: background-color 200ms;
+  padding-top: 16px;
+  position: relative;
+
+  > label {
+    position: absolute;
+    cursor: text;
+    top: 22px;
+    left: 20px;
+    transition: all 200ms;
+    opacity: 0.4;
+
+    &.nonText {
+      cursor: default;
+    }
+
+    &.active {
+      opacity: 1;
+
+      top: 6px;
+      left: 8px;
+      background-color: $white;
+      font-size: 8px;
+      padding: 0 3px;
+    }
   }
 
-  &.active {
-    > div {
-      background-color: $primary;
+  > input {
+    border: 1px solid $dark-grey;
+    transition: all 200ms;
+    outline: none;
+    -moz-appearance: none;
+
+    height: 26px;
+    padding-inline-start: 20px;
+    border-radius: 6px;
+
+    &:disabled {
+      color: $dark-grey;
+      cursor: default;
+      background: none;
+    }
+
+
+    &:hover {
+      border-color: $black;
+    }
+
+    &:focus {
+      border-color: $black;
+      box-shadow: 0 0 0 3px rgba($primary, 0.5);
+    }
+  }
+
+  @media screen and (min-width: $tablet) {
+
+    padding-top: 16px;
+
+    > label {
+      top: 26px;
+      left: 20px;
+
+      &.active {
+        top: 5px;
+        padding: 0 5px;
+        font-size: 10px;
+      }
+    }
+
+    > input {
+      height: 36px;
+      padding-inline-start: 20px;
     }
   }
 }

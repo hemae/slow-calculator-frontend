@@ -2,9 +2,7 @@ import {combineReducers, configureStore} from '@reduxjs/toolkit'
 
 // reducers
 import {
-
-    authSlice,
-
+    calculateSlice,
     alertSlice,
     settingsSlice,
     popUpSlice
@@ -16,9 +14,7 @@ import {TypedUseSelectorHook, useDispatch, useSelector} from 'react-redux'
 
 
 const reducer = combineReducers({
-
-    auth: authSlice.reducer,
-
+    calculate: calculateSlice.reducer,
     popUp: popUpSlice.reducer,
     settings: settingsSlice.reducer,
     alert: alertSlice.reducer
@@ -36,14 +32,6 @@ export type Store = ReturnType<typeof setupStore>
 export type Dispatch = typeof store.dispatch
 
 export const wrapper = createWrapper<Store>(setupStore)
-
-export const slices = {
-    authSlice,
-
-    alertSlice,
-    settingsSlice,
-    popUpSlice
-}
 
 export const useAppDispatch = () => useDispatch<Dispatch>()
 export const useAppSelector: TypedUseSelectorHook<State> = useSelector

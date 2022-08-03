@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
-//@import "UI/button";
-//@import "UI/input";
-//@import "UI/select";
+@import "UI/button";
 @import "styles/screens";
 @import "styles/UI/common";
 
@@ -9,6 +7,8 @@
 .not-scrollable {
   overflow: hidden;
 }
+
+@include button;
 
 html,
 body {
