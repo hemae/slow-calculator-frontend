@@ -1,7 +1,6 @@
 export {Loader} from './Loader'
 export {TabSwitcher} from './TabSwitcher'
 export {DateComponent} from './Date'
-export {AuthForm} from './AuthForm'
 export {Switcher} from './Switcher'
 export {Alert} from './Alert'
 export {PopUp} from './PopUp'
