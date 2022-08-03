@@ -1,31 +1,40 @@
 import {FC, HTMLAttributes, memo, DetailedHTMLProps, InputHTMLAttributes} from 'react'
 import styles from './Input.module.scss'
-import {Divider} from '@UI'
+import useInput from '@UI/Input/useInput'
 import classNames from 'classnames'
-import useInputFocus from '@hooks/useInputFocus'
 
 
 export const Input: FC<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>> = memo<HTMLAttributes<HTMLInputElement>>((props) => {
 
+    //@ts-ignore
+    const {placeholder, value, disabled} = props
+
     const {
-        active,
-        focus,
-        blur
-    } = useInputFocus<HTMLInputElement>()
+        input,
+        placeholderClick,
+        onFocus,
+        onBlur,
+        inputFocused
+    } = useInput({onFocus: props.onFocus, onBlur: props.onBlur, disabled: disabled as boolean | undefined})
 
     return (
         <div
-            className={classNames(
-                styles.main,
-                {[styles.active]: active}
-            )}
+            className={styles.main}
         >
+            {placeholder &&
+            <label
+                className={classNames(
+                    {[styles.active]: inputFocused || value},
+                    {[styles.nonText]: disabled}
+                )}
+                onClick={placeholderClick}
+            >{placeholder.slice(0, 19)}</label>}
             <input
-                {...props}
-                onFocus={focus}
-                onBlur={blur}
+                ref={input}
+                {...{...props, placeholder: undefined}}
+                onFocus={onFocus}
+                onBlur={onBlur}
             />
-            <Divider/>
         </div>
     )
 })

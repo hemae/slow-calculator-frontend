@@ -85,6 +85,9 @@
       "@store": [
         "store/index"
       ],
+      "@store/*": [
+        "store/*"
+      ],
       "@slices": [
         "store/slices"
       ],
