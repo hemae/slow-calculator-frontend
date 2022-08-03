@@ -6,5 +6,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &__modal {
+    width: calc(100% - 30px * 2 - 40px * 2);
+    padding: 20px;
+
+    border-radius: 16px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    &__modal {
+      width: 400px;
+      padding: 30px;
+    }
+  }
 }
 

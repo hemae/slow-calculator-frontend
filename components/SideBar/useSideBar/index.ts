@@ -1,6 +1,9 @@
 import {MouseEventHandler, TouchEventHandler, useCallback, useEffect, useState} from 'react'
 import router, {useRouter} from 'next/router'
 import useMouseTouchEvents from '@hooks/useMouseTouchEvents'
+import {useAppDispatch, useAppSelector} from '@store'
+import {showPopUp} from '@slices/popUp'
+import {clearResult} from '@slices/calculate'
 
 
 type Options = {
@@ -16,11 +19,16 @@ type Returned = {
     sideBarTouchStart: TouchEventHandler
     sideBarMove: TouchEventHandler
     sideBarTouchEnd: TouchEventHandler
+    linkClick: MouseEventHandler
 }
 
 export default function useSideBar(options: Options): Returned {
 
     const {basePath} = options
+
+    const dispatch = useAppDispatch()
+
+    const {isCalculateLoading} = useAppSelector(state => state.calculate)
 
     const [sideBarShown, setSideBarShown] = useState<boolean>(false)
     const [backgroundHidden, setBackgroundHidden] = useState<boolean>(true)
@@ -62,6 +70,18 @@ export default function useSideBar(options: Options): Returned {
         if (!backgroundShown) setTimeout(() => setBackgroundHidden(true), 200)
     }, [backgroundShown])
 
+    const linkClick: MouseEventHandler = useCallback((event): void => {
+        if (isCalculateLoading) {
+            event.preventDefault()
+            dispatch(showPopUp({
+                renderingComponent: 'Notification',
+                props: {notification: 'Подождите, пока закончатся вычисления'}
+            }))
+        } else {
+            dispatch(clearResult())
+        }
+    }, [isCalculateLoading])
+
     const {
         touchStart,
         touchMove,
@@ -91,6 +111,7 @@ export default function useSideBar(options: Options): Returned {
         backgroundShown,
         sideBarTouchStart,
         sideBarMove,
-        sideBarTouchEnd
+        sideBarTouchEnd,
+        linkClick
     }
 }

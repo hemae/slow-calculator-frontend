@@ -1,6 +1,8 @@
 import {MouseEventHandler, useCallback, useEffect, useState} from 'react'
 import router, {useRouter} from 'next/router'
 import appRoutes from '@appRoutes'
+import {showPopUp} from '@slices/popUp'
+import {useAppDispatch, useAppSelector} from '@store'
 
 
 type Returned = {
@@ -9,6 +11,10 @@ type Returned = {
 }
 
 export default function useHeader(): Returned {
+
+    const dispatch = useAppDispatch()
+
+    const {isCalculateLoading} = useAppSelector(state => state.calculate)
 
     const [logoInteractive, setLogoInteractive] = useState<boolean>(true)
 
@@ -19,9 +25,16 @@ export default function useHeader(): Returned {
         else setLogoInteractive(true)
     }, [pathname])
 
-    const logoClick: MouseEventHandler = useCallback((): void => {
-        if (pathname !== appRoutes.index) router.push(appRoutes.index)
-    }, [pathname])
+    const logoClick: MouseEventHandler = useCallback((event): void => {
+        if (isCalculateLoading) {
+            dispatch(showPopUp({
+                renderingComponent: 'Notification',
+                props: {notification: 'Подождите, пока закончатся вычисления'}
+            }))
+        } else {
+            if (pathname !== appRoutes.index) router.push(appRoutes.index)
+        }
+    }, [pathname, isCalculateLoading])
 
     return {
         logoClick,

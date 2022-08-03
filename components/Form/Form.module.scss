@@ -6,6 +6,30 @@
   padding: 20px;
   border-radius: 8px;
 
+  > *:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  > form {
+
+    display: flex;
+    flex-direction: column;
+
+    > *:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__result {
+    display: flex;
+    justify-content: flex-start;
+    min-height: 50px;
+
+    &.loading {
+      justify-content: center;
+    }
+  }
+
   @media screen and (min-width: $tablet) {
     border-radius: 16px;
   }

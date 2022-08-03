@@ -42,16 +42,16 @@
     > div[id="popup-close"] {
       position: sticky;
       top: 10px;
-      right: 10px;
-      margin-left: 92%;
+      right: 20px;
+      margin-left: 90%;
     }
   }
 
   @media screen and (min-width: $tablet) {
     > section > div[id="popup-close"] {
       top: 20px;
-      right: 20px;
-      margin-left: 93%;
+      right: 30px;
+      margin-left: 86%;
     }
   }
 }

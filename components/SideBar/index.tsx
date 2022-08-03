@@ -28,7 +28,8 @@ export const SideBar = memo<SideBarProps>((props) => {
         backgroundShown,
         sideBarTouchStart,
         sideBarMove,
-        sideBarTouchEnd
+        sideBarTouchEnd,
+        linkClick
     } = useSideBar({basePath})
 
     const links = forms.map(form => {
@@ -36,7 +37,7 @@ export const SideBar = memo<SideBarProps>((props) => {
             <Link
                 key={form.id}
                 href={`${appRoutes.form}/${form.rootKey}`}
-            ><a>{form.data.name}</a></Link>
+            ><a onClick={linkClick}>{form.data.name}</a></Link>
         )
     })
 
