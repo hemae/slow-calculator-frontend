@@ -1,34 +1,87 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# slow-calculator-frontend
 
-## Getting Started
+node v16.15.0 is required
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
+## development
+To start next.js project with development mode:
+```
+yarn
+```
+```
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## deploy
+To start next.js project with production mode
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+you should add comments in serverData/data/nginx.conf next to following lines:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```
+# listen       443 ssl;
+# ssl_certificate /etc/letsencrypt/live/workcard.fun/fullchain.pem;
+# ssl_certificate_key /etc/letsencrypt/live/workcard.fun/privkey.pem;
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+# include /etc/letsencrypt/options-ssl-nginx.conf;
+# ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 
-## Learn More
+# if ($server_port = 80) { set $https_redirect 1; }
+# if ($host ~ '^www\.') { set $https_redirect 1; }
+# if ($https_redirect = 1) { return 301 https://$host$request_uri; }
+```
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+(docker and docker-compose are required):
+```
+docker build -t slow-calculator-frontend .
+```
+```
+cd serverData/
+```
+```
+docker-compose up -d
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+enjoy!
 
-## Deploy on Vercel
+## SSL-certificate
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+after "docker-compose up -d" has been implemented run (in ./serverData):
+```
+chmod ugo+x init-letsencrypt.sh
+```
+```
+./init-letsencrypt.sh
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The shell script "init-letsencrypt.sh" has custom settings:
+```
+domains: workcard.fun | www.workcard.fun
+email: hemae2468@gmail.com
+```
+
+If you need to get SSL-certificate in other domain you have to change these parameters to own.
+
+After the script implementing remove the comments described above and run:
+
+```
+docker-compose stop
+docker-compose up --force-recreate -d
+```
+
+enjoy!
+
+## Tech Stack
+
+The project has the following tech stack
+
+- [Next.js](/https://nextjs.org/docs/getting-started)
+- [ReduxJS-Toolkit](/https://redux-toolkit.js.org/introduction/getting-started) especially for Next.js (see way of using in the projects)
+- [TypeScript](/https://www.typescriptlang.org/docs/) as main programming language
+- [SASS prepocessor](/https://sass-lang.com/guide) (style files with *.scss extansion)
+- [Axios](/https://github.com/axios/axios) as XML/HTTP requests manager
+
+For more information:
+
+email: [hemae2468@gmail.com](mailto:hemae2468@gmail.com)
+
+telegram: [@hans_andersennn](https://t.me/hans_andersennn)
